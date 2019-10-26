@@ -115,7 +115,7 @@ public class PlayerShooting : MonoBehaviour
             var currentBullet = bulletPool[indexBullet].GetComponent<PlayerBullet>();
             currentBullet.gameObject.SetActive(true);
 
-            currentBullet.StartCoroutine(currentBullet.MoveTo(hit.point, enemy));
+            currentBullet.StartCoroutine(currentBullet.MoveTo(enemy.transform.position, enemy));
 
            
         }

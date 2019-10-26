@@ -15,26 +15,31 @@ public class PlayerBullet : MonoBehaviour
 {
 
     [SerializeField] float speed = 20f;
-    
+
 
     // Bullet damage in PlayerState.DamageBullet
 
 
+    private Vector3 dirNorm;
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(Player.instance.weaponCannon.position, dirNorm);
 
-
+    }
     public IEnumerator MoveTo(Vector3 pos, Enemy enemy)
     {
-        var dir = pos - transform.position;
-        var dirNorm = dir.normalized;
+        var dir = pos - Player.instance.weaponCannon.position;
+        dirNorm = dir.normalized;
 
-        transform.LookAt(enemy.transform.position);
+        transform.LookAt(dirNorm);
 
         while(dir.sqrMagnitude > 1f)
         {
             dir = pos - transform.position;
-           
 
-            transform.Translate(transform.forward * speed * Time.deltaTime);
+
+            transform.position += transform.forward * speed * Time.deltaTime;
             yield return null;
         }
 
