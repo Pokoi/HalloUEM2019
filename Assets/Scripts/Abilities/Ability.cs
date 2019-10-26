@@ -19,5 +19,21 @@ public class Ability : MonoBehaviour
 
     public float cooldown;
 
-    public virtual void levelUp() { }
+    public virtual void LevelUp() { }
+
+    public virtual void ActivateAbility() { }
+
+    private bool available = true;
+
+    public bool Available
+    {
+        get
+        {
+            return available;
+        }
+        set
+        {
+            available = value;
+        }
+    }
 }
