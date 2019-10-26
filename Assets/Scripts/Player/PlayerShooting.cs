@@ -17,111 +17,59 @@ public class PlayerShooting : MonoBehaviour
 
     [SerializeField] uint initialPoolSize;
     [SerializeField] GameObject bullet;
-    [SerializeField] List<GameObject> bulletPool = new List<GameObject>();
+    [SerializeField] List<PlayerBullet> bulletPool = new List<PlayerBullet>();
 
     [SerializeField]
     private float currentTime = 0;
-
-    private void Start()
-    {
-        // Creating bullets inside the pool
-        for(int i = 0; i < initialPoolSize; ++i)
-        {
-            bulletPool.Add(CreateBullet());
-        }
-    }
 
     private void Update()
     {
         currentTime += Time.deltaTime;
 
-        if (currentTime >= fireRate && Input.GetKeyDown(KeyCode.Z))
+        if (currentTime >= fireRate && Input.GetButtonDown("Fire1"))
         {
             currentTime = 0f;
-            ShootBullet();
+            Shoot();
         }
-        else if(currentTime >= fireRate)
+        else if (currentTime >= fireRate)
         {
             currentTime = fireRate;
         }
 
 
-        //if(Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    var indexBullet = GetBullet();
-        //    var currentBullet = bulletPool[indexBullet].GetComponent<PlayerBullet>();
-        //    currentBullet.gameObject.SetActive(true);
-        //    currentBullet.StartCoroutine(currentBullet.MoveTo(sitiodisparo.position));
-        //}
-
     }
 
 
-    private int GetBullet()
+    public float range = 100f;
+
+    public PlayerBullet GetBullet()
     {
-        // Search for the first unactive bullet
-        var found = false;
-        var i = 0;
-        var bulletIndex = 0;
-
-
-        while (!found && i < bulletPool.Count)
+        int i = 0;
+        while (i < bulletPool.Count)
         {
-            if (!this.bulletPool[i].activeSelf)
-            {
-                found = true;
-                bulletIndex = i;
-            }
-            else
-            {
-                ++i;
-            }
+            if (!bulletPool[i].gameObject.activeSelf) return bulletPool[i].gameObject.GetComponent<PlayerBullet>();
+            else i++;
         }
-
-        if (!found)
-        {
-            // All the bullets are active: create a new one
-            bulletPool.Add(CreateBullet());
-            bulletIndex = bulletPool.Count - 1;
-        }
-
-        return bulletIndex;
+        GameObject go = Instantiate(bullet);
+        PlayerBullet bulletComponent = go.GetComponent<PlayerBullet>();
+        bulletPool.Add(bulletComponent);
+        return bulletComponent;
     }
 
-
-    /// <summary>
-    /// Create a inactive bullet
-    /// </summary>
-    /// <returns>Inactive bullet</returns>
-    private GameObject CreateBullet()
+    private void Shoot()
     {
-        var b = Instantiate(bullet);
-        b.SetActive(false);
-
-        return b;
-    }
-
-
-    private void ShootBullet()
-    {
-       
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;        
-
-        if(Physics.Raycast(ray, out hit))
+        RaycastHit hit;
+        if (Physics.Raycast(Player.instance.weaponCannon.position, Player.instance.weaponCannon.forward, out hit, range))
         {
-            
-            var enemy = hit.collider.gameObject.GetComponent<Enemy>();
 
-            var indexBullet   = GetBullet();
-            var currentBullet = bulletPool[indexBullet].GetComponent<PlayerBullet>();
-            currentBullet.gameObject.SetActive(true);
 
-            currentBullet.StartCoroutine(currentBullet.MoveTo(enemy.transform.position, enemy));
-           
+
+            PlayerBullet playerBullet = GetBullet();
+            playerBullet.gameObject.SetActive(true);
+            playerBullet.transform.position = Player.instance.weaponCannon.position;
+            playerBullet.transform.rotation = Player.instance.weaponCannon.rotation;
+            playerBullet.moveToTarget(hit.transform.position, Player.instance.weaponCannon.position);
+
         }
-        
-       
     }
-
 }

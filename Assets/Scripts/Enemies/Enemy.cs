@@ -55,6 +55,14 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Player>() != null) StartCoroutine("Explode", detonationTime);
+
+        PlayerBullet bullet = other.gameObject.GetComponent<PlayerBullet>();
+        if (bullet != null)
+        {
+            ReceiveDamage(PlayerState.instance.DamageBullet);
+            bullet.getTrailRenderer().Clear();
+            bullet.gameObject.SetActive(false);
+        }
     }
     private IEnumerator Explode(float timeToDetonate)
     {
