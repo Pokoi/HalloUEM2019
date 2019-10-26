@@ -26,7 +26,7 @@ public class PlayerShooting : MonoBehaviour
     {
         currentTime += Time.deltaTime;
 
-        if (currentTime >= fireRate && Input.GetButtonDown("Fire1"))
+        if (currentTime >= fireRate && Input.GetButton("Fire1"))
         {
             currentTime = 0f;
             Shoot();

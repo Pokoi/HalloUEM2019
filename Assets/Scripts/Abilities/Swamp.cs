@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Swamp : MonoBehaviour
+public class Swamp : Ability
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    
+    public override void LevelUp()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void ActivateAbility()
     {
-        
+
     }
 }
