@@ -64,9 +64,12 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public virtual void ReceiveDamage(int dmg) { }
-
-    
+    public void ReceiveDamage(int dmg) 
+    {
+        this.life -= dmg;
+        if (this.life <= 0) OnDead();
+    }
+        
 
     public void OnDead()
     {

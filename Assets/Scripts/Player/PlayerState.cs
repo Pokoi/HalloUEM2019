@@ -21,7 +21,6 @@ public class PlayerState : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
 

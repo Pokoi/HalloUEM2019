@@ -34,21 +34,27 @@ public class PlayerBullet : MonoBehaviour
 
         transform.LookAt(dirNorm);
 
-        while(dir.sqrMagnitude > 1f)
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit);
+
+        while ((hit.distance >= 1))
         {
             dir = pos - transform.position;
-
-
             transform.position += transform.forward * speed * Time.deltaTime;
+            
+            Physics.Raycast(ray, out hit);
+
             yield return null;
         }
-
-        if(enemy != null)
+        
+        var enemyHited = hit.collider.GetComponent<Enemy>();
+        if(enemyHited)
         {
-            enemy.ReceiveDamage(PlayerState.instance.DamageBullet);
+            enemyHited.ReceiveDamage(PlayerState.instance.DamageBullet);
         }
 
-        Debug.Log("LLEGO!");
+        DisableBullet();
     }
 
 

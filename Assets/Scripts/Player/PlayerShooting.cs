@@ -17,7 +17,7 @@ public class PlayerShooting : MonoBehaviour
 
     [SerializeField] uint initialPoolSize;
     [SerializeField] GameObject bullet;
-    [SerializeField] List<GameObject> bulletPool;
+    [SerializeField] List<GameObject> bulletPool = new List<GameObject>();
 
     [SerializeField]
     private float currentTime = 0;
@@ -104,19 +104,20 @@ public class PlayerShooting : MonoBehaviour
 
     private void ShootBullet()
     {
+       
         Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
+        RaycastHit hit;        
 
         if(Physics.Raycast(ray, out hit))
         {
+            
             var enemy = hit.collider.gameObject.GetComponent<Enemy>();
 
-            var indexBullet = GetBullet();
+            var indexBullet   = GetBullet();
             var currentBullet = bulletPool[indexBullet].GetComponent<PlayerBullet>();
             currentBullet.gameObject.SetActive(true);
 
             currentBullet.StartCoroutine(currentBullet.MoveTo(enemy.transform.position, enemy));
-
            
         }
         

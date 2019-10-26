@@ -58,7 +58,7 @@ public class Boid : MonoBehaviour {
     public void Initialize (BoidSettings settings, Transform target) {
         this.target   = target;
         this.settings = settings;
-
+        
         position = cachedTransform.position;
         forward  = cachedTransform.forward;
 
@@ -69,7 +69,6 @@ public class Boid : MonoBehaviour {
     public void UpdateBoid () 
     {
         Vector3 acceleration = Vector3.zero;
-
         if (target != null) 
         {
             Vector3 offsetToTarget = (target.position - position);
@@ -104,11 +103,13 @@ public class Boid : MonoBehaviour {
         speed = Mathf.Clamp (speed, settings.minSpeed, settings.maxSpeed);
         velocity = dir * speed;
 
-        velocity.y = 0;
         cachedTransform.position += velocity * Time.deltaTime;
         cachedTransform.forward = dir;
         position = cachedTransform.position;
+       // position = new Vector3(cachedTransform.position.x, target.position.y, cachedTransform.position.z);
         forward = dir;
+
+        
     }
 
     bool IsHeadingForCollision () {
