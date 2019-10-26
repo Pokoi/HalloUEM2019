@@ -87,10 +87,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2820994379904258209}
-  - component: {fileID: 791509708989862896}
+  - component: {fileID: 2082657049006491568}
   - component: {fileID: 2806828732566772438}
+  - component: {fileID: 3951589011714862846}
   - component: {fileID: -5396490162921724513}
-  - component: {fileID: 2219154921532205728}
   m_Layer: 0
   m_Name: EnemyBasic
   m_TagString: Untagged
@@ -113,7 +113,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &791509708989862896
+--- !u!114 &2082657049006491568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4979289d200af4cadc303fe7c817f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
-  life: 200
-  secondsUntilResurrection: 1.5
+  damage: 300
+  life: 50
+  secondsUntilResurrection: 3
   detonationTime: 0.5
 --- !u!54 &2806828732566772438
 Rigidbody:
@@ -145,20 +145,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!135 &-5396490162921724513
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7362118169184356516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2219154921532205728
+--- !u!114 &3951589011714862846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,3 +163,16 @@ MonoBehaviour:
   avgAvoidanceHeading: {x: 0, y: 0, z: 0}
   centreOfFlockmates: {x: 0, y: 0, z: 0}
   numPerceivedFlockmates: 0
+--- !u!135 &-5396490162921724513
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7362118169184356516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
