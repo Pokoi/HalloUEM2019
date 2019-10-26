@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    public static PlayerState instance;
+
+    private float damageBullet = 1;
+    public float DamageBullet { get { return damageBullet; }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        // if the singleton hasn't been initialized yet
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;//Avoid doing anything else
+        }
+
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
+
+
 }
