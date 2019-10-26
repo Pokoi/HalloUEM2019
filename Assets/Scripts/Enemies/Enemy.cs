@@ -12,6 +12,20 @@ public class Enemy : MonoBehaviour
 
     public float detonationTime = .5f;
 
+    private bool defeat;
+
+    public bool Defeat
+    {
+        get
+        {
+            return defeat;
+        }
+        set
+        {
+            defeat = value;
+        }
+    }
+
     // Cached
     private Boid     cachedBoid;
     private Collider cachedCollider;
@@ -28,9 +42,9 @@ public class Enemy : MonoBehaviour
     {
         cachedCollider.enabled = true;
         cachedBoid.enabled     = true;
+        defeat = false;
         
     }
-
 
     public void ReceiveDamage(int dmg) 
     {
@@ -63,6 +77,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator WaitingResurrection(float seconds)
     {
+        defeat = true;
         yield return new WaitForSeconds(seconds);
         Resurrection();        
     }
