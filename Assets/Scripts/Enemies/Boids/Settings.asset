@@ -9,21 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c13c402e481496d488326ad1a62cd9b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dbb556365a8f1243ade7aa252d24330, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  minSpeed: 2
-  maxSpeed: 5
-  perceptionRadius: 2.5
-  avoidanceRadius: 1
+  minSpeed: 1
+  maxSpeed: 10
+  perceptionRadius: 16
+  avoidanceRadius: 5
   maxSteerForce: 3
-  alignWeight: 1
-  cohesionWeight: 1
-  seperateWeight: 1
-  targetWeight: 1
+  alignWeight: 9.09
+  cohesionWeight: 10.76
+  seperateWeight: 5
+  targetWeight: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
-  boundsRadius: 0.55
+    m_Bits: 512
+  boundsRadius: 0.27
   avoidCollisionWeight: 10
   collisionAvoidDst: 5
