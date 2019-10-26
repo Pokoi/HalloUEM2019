@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private int life;
     private float velocity;
 
-    public float secondsUntilResurrection;
+    public float secondsUntilResurrection = 3f;
 
     // Cached
     private Boid     cachedBoid;
