@@ -9,6 +9,12 @@ public class EnemyBasic : Enemy
         //TODO:
     }
 
+    public override void ReceiveDamage(int dmg)
+    {
+        // TODO
+        Debug.Log("OUCH que daño mamasita");
+    }
+
     public override void Resurrection()
     {
         //TODO:

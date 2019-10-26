@@ -47,6 +47,8 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void Resurrection();
 
+    public abstract void ReceiveDamage(int dmg);
+
     
 
 

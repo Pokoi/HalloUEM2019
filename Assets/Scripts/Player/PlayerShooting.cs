@@ -15,15 +15,11 @@ public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] float fireRate = 0.2f;
 
-
-    public Transform sitiodisparo;
-
-
     [SerializeField] uint initialPoolSize;
     [SerializeField] GameObject bullet;
     [SerializeField] List<GameObject> bulletPool;
 
-
+    [SerializeField]
     private float currentTime = 0;
 
     private void Start()
@@ -37,19 +33,26 @@ public class PlayerShooting : MonoBehaviour
 
     private void Update()
     {
+        currentTime += Time.deltaTime;
 
-        if (currentTime >= fireRate)
+        if (currentTime >= fireRate && Input.GetKeyDown(KeyCode.Z))
         {
             currentTime = 0f;
-
+            ShootBullet();
         }
-        if(Input.GetKeyDown(KeyCode.Z))
+        else if(currentTime >= fireRate)
         {
-            var indexBullet = GetBullet();
-            var currentBullet = bulletPool[indexBullet].GetComponent<PlayerBullet>();
-            currentBullet.gameObject.SetActive(true);
-            currentBullet.StartCoroutine(currentBullet.MoveTo(sitiodisparo.position));
+            currentTime = fireRate;
         }
+
+
+        //if(Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    var indexBullet = GetBullet();
+        //    var currentBullet = bulletPool[indexBullet].GetComponent<PlayerBullet>();
+        //    currentBullet.gameObject.SetActive(true);
+        //    currentBullet.StartCoroutine(currentBullet.MoveTo(sitiodisparo.position));
+        //}
 
     }
 
@@ -96,6 +99,28 @@ public class PlayerShooting : MonoBehaviour
         b.SetActive(false);
 
         return b;
+    }
+
+
+    private void ShootBullet()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit))
+        {
+            var enemy = hit.collider.gameObject.GetComponent<Enemy>();
+
+            var indexBullet = GetBullet();
+            var currentBullet = bulletPool[indexBullet].GetComponent<PlayerBullet>();
+            currentBullet.gameObject.SetActive(true);
+
+            currentBullet.StartCoroutine(currentBullet.MoveTo(hit.point, enemy));
+
+           
+        }
+        
+       
     }
 
 }

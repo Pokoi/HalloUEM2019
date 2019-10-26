@@ -7,9 +7,9 @@ public class PlayerState : MonoBehaviour
 
     public static PlayerState instance;
 
-    private float damageBullet = 1;
-    public float DamageBullet { get { return damageBullet; }
-    }
+    private int damageBullet = 1;
+    public int DamageBullet { get { return damageBullet; } set { damageBullet = value; } }
+    
 
     private void Awake()
     {

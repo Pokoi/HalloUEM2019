@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿
+// +----------------------------------------------------------------------------+
+// | Created by Alejandro Benitez Lopez, benitezdev@gmail.com (benitezdev.com)  |
+// | On 26th of October 2019                                                    |
+// | Copyright © 2019 Benitezdev. Creative Commons License:                     |
+// | Attribution 4.0 International (CC BY 4.0)                                  |
+// +----------------------------------------------------------------------------+
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,18 +22,27 @@ public class PlayerBullet : MonoBehaviour
 
 
 
-    public IEnumerator MoveTo(Vector3 pos)
+    public IEnumerator MoveTo(Vector3 pos, Enemy enemy)
     {
         var dir = pos - transform.position;
         var dirNorm = dir.normalized;
-        
+
+        transform.LookAt(enemy.transform.position);
+
         while(dir.sqrMagnitude > 1f)
         {
             dir = pos - transform.position;
-            Debug.Log(dir.sqrMagnitude);
-            transform.Translate(dirNorm * speed * Time.deltaTime);
+           
+
+            transform.Translate(transform.forward * speed * Time.deltaTime);
             yield return null;
         }
+
+        if(enemy != null)
+        {
+            enemy.ReceiveDamage(PlayerState.instance.DamageBullet);
+        }
+
         Debug.Log("LLEGO!");
     }
 
