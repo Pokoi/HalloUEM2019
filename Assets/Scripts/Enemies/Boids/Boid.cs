@@ -35,11 +35,13 @@ public class Boid : MonoBehaviour {
     public Vector3 centreOfFlockmates;
     [HideInInspector]
     public int numPerceivedFlockmates;
+    public float velocityModifier = 1f;
 
     // Cached
     Material material;
     Transform cachedTransform;
     Transform target;
+
 
 
     void Awake () {
@@ -104,7 +106,7 @@ public class Boid : MonoBehaviour {
         velocity = dir * speed;
         velocity.y = 0;
 
-        cachedTransform.position += velocity * Time.deltaTime;
+        cachedTransform.position += velocity * Time.deltaTime * velocityModifier;
         cachedTransform.forward = Vector3.Lerp(cachedTransform.forward, dir, Time.deltaTime * 10);
         position = cachedTransform.position;
         forward = dir;

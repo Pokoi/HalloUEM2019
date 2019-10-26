@@ -4,9 +4,5 @@ using UnityEngine;
 
 public class EnemyFast : Enemy
 {
-    public override void LevelUP()
-    {
-       //TODO:
-    }
-
+  
 }

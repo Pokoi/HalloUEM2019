@@ -31,15 +31,8 @@ public class Player : MonoBehaviour
         instance = this;       
         movement = new PlayerMovement(this.transform, trMesh, layerPlane);
 
-
-
-
         bound = new TransformBounds(playerGround, transform);
-
-    }
-
-
-   
+    }   
 
     private void Update()
     {
