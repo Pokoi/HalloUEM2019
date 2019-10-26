@@ -26,13 +26,8 @@ public class Player : MonoBehaviour
             return;//Avoid doing anything else
         }
 
-        instance = this;
-
-        DontDestroyOnLoad(this.gameObject);
-
-       
+        instance = this;       
         movement = new PlayerMovement(this.transform, trMouse, layerPlane);
-
     }
 
 

@@ -19,11 +19,11 @@ MonoBehaviour:
   maxSteerForce: 3
   alignWeight: 9.09
   cohesionWeight: 10.76
-  seperateWeight: 5
+  seperateWeight: 2
   targetWeight: 8
   obstacleMask:
     serializedVersion: 2
     m_Bits: 512
   boundsRadius: 0.27
-  avoidCollisionWeight: 10
+  avoidCollisionWeight: 7
   collisionAvoidDst: 5

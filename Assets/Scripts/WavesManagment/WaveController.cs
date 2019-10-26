@@ -58,6 +58,7 @@ public class WaveController : MonoBehaviour
         StartCoroutine("ZombieGeneration");
     }
 
+
     //Generates a zombie after spawnTick time is elapsed
     IEnumerator ZombieGeneration()
     {

@@ -22,16 +22,12 @@ public class PlayerState : MonoBehaviour
             Destroy(this.gameObject);
             return;//Avoid doing anything else
         }
-
         instance = this;
 
         life = 100;
     }
 
-    private void Update()
-    {
-        Debug.Log("Vida " + life.ToString());
-    }
+
 
 
 }

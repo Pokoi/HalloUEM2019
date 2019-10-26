@@ -31,7 +31,12 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public virtual void ReceiveDamage(int dmg) { }
+
+    public void ReceiveDamage(int dmg) 
+    {
+        this.life -= dmg;
+        if (this.life <= 0) OnDead();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,7 +45,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator Explode(float timeToDetonate)
     {
         yield return new WaitForSeconds(timeToDetonate);
-
+        
         PlayerState.instance.Life -= damage;
         OnDead();
 
