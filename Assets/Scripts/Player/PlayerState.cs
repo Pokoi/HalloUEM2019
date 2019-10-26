@@ -33,13 +33,9 @@ public class PlayerState : MonoBehaviour
         }
         instance = this;
 
-        life = 20;
+        life = MaxLife;
     }
 
-    private void Update()
-    {
-        Debug.Log(life);
-    }
 
 
 

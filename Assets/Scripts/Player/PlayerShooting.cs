@@ -25,7 +25,7 @@ public class PlayerShooting : MonoBehaviour
     private void Start()
     {
         // Creating bullets inside the pool
-        for(int i = 0; i < initialPoolSize; ++i)
+        for (int i = 0; i < initialPoolSize; ++i)
         {
             bulletPool.Add(CreateBullet());
         }
@@ -35,24 +35,16 @@ public class PlayerShooting : MonoBehaviour
     {
         currentTime += Time.deltaTime;
 
-        if (currentTime >= fireRate && Input.GetKeyDown(KeyCode.Z))
+        if (currentTime >= fireRate && Input.GetButtonDown("Fire1"))
         {
             currentTime = 0f;
-            ShootBullet();
+            Shoot();
         }
-        else if(currentTime >= fireRate)
+        else if (currentTime >= fireRate)
         {
             currentTime = fireRate;
         }
 
-
-        //if(Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    var indexBullet = GetBullet();
-        //    var currentBullet = bulletPool[indexBullet].GetComponent<PlayerBullet>();
-        //    currentBullet.gameObject.SetActive(true);
-        //    currentBullet.StartCoroutine(currentBullet.MoveTo(sitiodisparo.position));
-        //}
 
     }
 
@@ -88,11 +80,6 @@ public class PlayerShooting : MonoBehaviour
         return bulletIndex;
     }
 
-
-    /// <summary>
-    /// Create a inactive bullet
-    /// </summary>
-    /// <returns>Inactive bullet</returns>
     private GameObject CreateBullet()
     {
         var b = Instantiate(bullet);
@@ -102,26 +89,28 @@ public class PlayerShooting : MonoBehaviour
     }
 
 
-    private void ShootBullet()
+    public float range = 100f;
+
+
+    private void Shoot()
     {
-       
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;        
-
-        if(Physics.Raycast(ray, out hit))
+        RaycastHit hit;
+        if (Physics.Raycast(Player.instance.weaponCannon.position, Player.instance.weaponCannon.forward, out hit, range))
         {
-            
-            var enemy = hit.collider.gameObject.GetComponent<Enemy>();
+            Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
 
-            var indexBullet   = GetBullet();
-            var currentBullet = bulletPool[indexBullet].GetComponent<PlayerBullet>();
-            currentBullet.gameObject.SetActive(true);
+            if (enemy != null)
+            {
+                var indexBullet = GetBullet();
+                GameObject bull = bulletPool[indexBullet];
+                PlayerBullet playerBullet = bull.GetComponent<PlayerBullet>();
+                playerBullet.gameObject.SetActive(true);
+                playerBullet.transform.position = Player.instance.weaponCannon.position;
+                playerBullet.moveToTarget(hit.transform.position, Player.instance.weaponCannon.position);
 
-            currentBullet.StartCoroutine(currentBullet.MoveTo(enemy.transform.position, enemy));
-           
+                //currentBullet.StartCoroutine(currentBullet.MoveTo(enemy.transform.position, enemy));
+            }
+
         }
-        
-       
     }
-
 }
