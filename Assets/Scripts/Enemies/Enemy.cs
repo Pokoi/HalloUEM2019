@@ -121,4 +121,12 @@ public class Enemy : MonoBehaviour
         Invoke("Resurrection", secondsUntilResurrection);
     }
 
+
+    public void KillBySwamp()
+    {
+        if (defeat) GameManager.Instance.UpdateScore(pointsForKill);
+        else GameManager.Instance.UpdateScore(pointsForKill * 2);
+
+        this.gameObject.SetActive(false);
+    }
 }

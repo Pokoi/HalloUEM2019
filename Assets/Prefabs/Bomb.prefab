@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4d4eb067223f8e499b72ba46b421463, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,8 +87,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7138878988277213333}
-  - component: {fileID: 2087877741697555352}
   - component: {fileID: 582493239446546644}
+  - component: {fileID: 9138279223825938869}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -111,18 +111,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2087877741697555352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2444998076242773774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f0d7411989b347a25413429befb7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &582493239446546644
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -136,3 +124,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 12.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9138279223825938869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2444998076242773774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f192f7e370ea1548b35eb63ded5aa71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

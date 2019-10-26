@@ -42,9 +42,9 @@ public class WaveController : MonoBehaviour
     public int nEnemiesTypes = 3;
 
     //List of each enemy for pooling
-    List<EnemyBasic> basicEnemyPool = new List<EnemyBasic>();
-    List<EnemyFast> fastEnemyPool = new List<EnemyFast>();
-    List<EnemyTank> tankEnemyPool = new List<EnemyTank>();
+    public List<EnemyBasic> basicEnemyPool = new List<EnemyBasic>();
+    public List<EnemyFast> fastEnemyPool = new List<EnemyFast>();
+    public List<EnemyTank> tankEnemyPool = new List<EnemyTank>();
 
 
     [Header("Enemies Prefabs")]
