@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] Transform trMouse;
     [SerializeField] LayerMask layerPlane;
 
-    PlayerMovement movement;
 
+    PlayerMovement movement;
 
     private void Awake()
     {
@@ -27,10 +27,12 @@ public class Player : MonoBehaviour
         }
 
         instance = this;
+
         DontDestroyOnLoad(this.gameObject);
 
        
         movement = new PlayerMovement(this.transform, trMouse, layerPlane);
+
     }
 
 

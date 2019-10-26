@@ -31,6 +31,10 @@ public class BoidManager : MonoBehaviour {
         else Destroy(this.gameObject);
     }
 
+    public void RemoveBoid( Boid b)
+    {
+        boids.Remove(b);
+    }
     public void InitializeBoid(Boid b)
     {
         b.Initialize(settings, target);
