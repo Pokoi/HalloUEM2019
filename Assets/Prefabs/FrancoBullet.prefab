@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 2261762853439431298}
   - component: {fileID: 2261762853439431299}
   - component: {fileID: 2261762853439431296}
-  - component: {fileID: 5134108830242543652}
+  - component: {fileID: -5485380126876328484}
   m_Layer: 0
   m_Name: FrancoBullet
   m_TagString: Untagged
@@ -231,7 +231,7 @@ CapsuleCollider:
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5134108830242543652
+--- !u!114 &-5485380126876328484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -87,8 +87,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3556509641397611293}
-  - component: {fileID: 9203462448136121062}
-  - component: {fileID: 1119189840441928784}
+
+  - component: {fileID: -3506883263870279775}
+  - component: {fileID: -3054122176755043955}
+
   m_Layer: 0
   m_Name: EnemyFast
   m_TagString: Untagged
@@ -111,7 +113,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9203462448136121062
+--- !u!114 &-3506883263870279775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,11 +125,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d78be29776744a478d5a7a7d6388f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   damage: 0
   life: 0
   secondsUntilResurrection: 1.5
   detonationTime: 0.5
 --- !u!114 &1119189840441928784
+=======
+  damage: 20
+  life: 20
+  secondsUntilResurrection: 3
+  detonationTime: 0.5
+--- !u!114 &-3054122176755043955
+>>>>>>> b1528577c1ff8ec486de98fa167495f24d0db60c
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

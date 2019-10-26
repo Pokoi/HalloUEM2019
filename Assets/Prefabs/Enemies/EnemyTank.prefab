@@ -87,8 +87,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8165357935691520922}
-  - component: {fileID: 506081408846429869}
-  - component: {fileID: 3983720858486556630}
+
+  - component: {fileID: 7790867682260184782}
+  - component: {fileID: -661885752661605311}
   m_Layer: 0
   m_Name: EnemyTank
   m_TagString: Untagged
@@ -111,7 +112,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &506081408846429869
+--- !u!114 &7790867682260184782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,28 +121,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 8562633285817522454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aecb761bdfb74d4cb33fece0a7382d6, type: 3}
+  m_Script: {fileID: 11500000, guid: c39b5e9c7aee62e4a927fb05acc3b043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   damage: 0
   life: 0
   secondsUntilResurrection: 3
   detonationTime: 0.5
 --- !u!114 &3983720858486556630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8562633285817522454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a85e7adb7331d947aa0ef4f23bda8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+=======
   position: {x: 0, y: 0, z: 0}
   forward: {x: 0, y: 0, z: 0}
   avgFlockHeading: {x: 0, y: 0, z: 0}
   avgAvoidanceHeading: {x: 0, y: 0, z: 0}
   centreOfFlockmates: {x: 0, y: 0, z: 0}
   numPerceivedFlockmates: 0
+--- !u!114 &-661885752661605311
+>>>>>>> b1528577c1ff8ec486de98fa167495f24d0db60c
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8562633285817522454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 5a85e7adb7331d947aa0ef4f23bda8d9, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 6aecb761bdfb74d4cb33fece0a7382d6, type: 3}
+>>>>>>> b1528577c1ff8ec486de98fa167495f24d0db60c
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  life: 300
+  secondsUntilResurrection: 3
+  detonationTime: 0.5

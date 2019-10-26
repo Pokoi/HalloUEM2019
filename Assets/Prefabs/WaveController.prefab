@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2954960395628572875}
-  - component: {fileID: 2954960395628572872}
+  - component: {fileID: 6956076249581037078}
   m_Layer: 0
   m_Name: WaveController
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2954960395628572872
+--- !u!114 &6956076249581037078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerList:
-  - {fileID: 0}
-  spawnTick: 0.83
+  - {fileID: 2354602938821607832, guid: bf0f5c10e150b254eab5a7d3dbf92ea9, type: 3}
+  spawnTick: 1.03
   nEnemiesTypes: 3
   basicEnemy: {fileID: 7362118169184356516, guid: 382fc42cbb1420041865efd690e9f20d,
     type: 3}

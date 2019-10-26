@@ -9,18 +9,16 @@ public class Priest : Ability
     public float ticks = .5f;
     public int incrByLevel = 5;
 
+    
+
     private float startTime = 0;
 
     private void Update()
     {
-        if (Time.time > startTime + cooldown &&  Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ActivatePriest();
-
-        }
-
+        Available = Time.time > startTime + cooldown;
+        
     }
-    public void ActivatePriest()
+    public override void ActivateAbility()
     {
         StartCoroutine("PriestEnumerator");
     }
@@ -59,7 +57,7 @@ public class Priest : Ability
 
 
     }
-    public override void levelUp()
+    public override void LevelUp()
     {
         percentage += incrByLevel;
     }
