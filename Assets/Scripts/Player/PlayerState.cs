@@ -9,7 +9,10 @@ public class PlayerState : MonoBehaviour
 
     private int damageBullet = 1;
     public int DamageBullet { get { return damageBullet; } set { damageBullet = value; } }
-    
+
+    private int life;
+    public int Life { get { return life; } set { life = value; } }
+
 
     private void Awake()
     {
@@ -21,7 +24,13 @@ public class PlayerState : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
+
+        life = 100;
+    }
+
+    private void Update()
+    {
+        Debug.Log("Vida " + life.ToString());
     }
 
 

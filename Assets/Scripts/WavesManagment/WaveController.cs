@@ -58,11 +58,6 @@ public class WaveController : MonoBehaviour
         StartCoroutine("ZombieGeneration");
     }
 
-    private void Update()
-    {
-        Debug.Log(basicEnemyPool.Count);
-    }
-
     //Generates a zombie after spawnTick time is elapsed
     IEnumerator ZombieGeneration()
     {

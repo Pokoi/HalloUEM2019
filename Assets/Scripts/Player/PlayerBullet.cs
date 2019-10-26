@@ -21,12 +21,7 @@ public class PlayerBullet : MonoBehaviour
 
 
     private Vector3 dirNorm;
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(Player.instance.weaponCannon.position, dirNorm);
-
-    }
+    
     public IEnumerator MoveTo(Vector3 pos, Enemy enemy)
     {
         var dir = pos - Player.instance.weaponCannon.position;

@@ -47,9 +47,9 @@ MonoBehaviour:
   - {fileID: 0}
   spawnTick: 0.83
   nEnemiesTypes: 3
-  basicEnemy: {fileID: 7362118169184356516, guid: 56c6a4fccd2d23b4c8151de0120b2e0e,
+  basicEnemy: {fileID: 7362118169184356516, guid: 382fc42cbb1420041865efd690e9f20d,
     type: 3}
-  fastEnemy: {fileID: 7259109569724700491, guid: e412c86fe19984b4aa633bba98971375,
+  fastEnemy: {fileID: 7259109569724700491, guid: c20d7adb91b1c91468bbe0de2443df46,
     type: 3}
-  tankEnemy: {fileID: 8562633285817522454, guid: 90ba3aaaa4a56214eb9c907c29c3a461,
+  tankEnemy: {fileID: 8562633285817522454, guid: f24c3020801ecab449262fd91db10ca8,
     type: 3}

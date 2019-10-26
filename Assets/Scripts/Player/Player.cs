@@ -10,8 +10,6 @@ public class Player : MonoBehaviour
 
     public Transform weaponCannon;
 
-
-
     private void Awake()
     {
         // if the singleton hasn't been initialized yet
@@ -22,6 +20,5 @@ public class Player : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 }
