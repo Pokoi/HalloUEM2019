@@ -56,10 +56,12 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Player>() != null) StartCoroutine("Explode", detonationTime);
 
-        if (other.gameObject.GetComponent<PlayerBullet>() != null)
+        PlayerBullet bullet = other.gameObject.GetComponent<PlayerBullet>();
+        if (bullet != null)
         {
             ReceiveDamage(PlayerState.instance.DamageBullet);
-            other.gameObject.SetActive(false);
+            bullet.getTrailRenderer().Clear();
+            bullet.gameObject.SetActive(false);
         }
     }
     private IEnumerator Explode(float timeToDetonate)

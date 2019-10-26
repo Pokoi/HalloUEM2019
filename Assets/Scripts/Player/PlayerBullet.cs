@@ -16,8 +16,18 @@ public class PlayerBullet : MonoBehaviour
 
     Vector3 normalizedDir;
 
+
+     TrailRenderer fxBullet;
+
+    public TrailRenderer getTrailRenderer() { return fxBullet; }
+
     [SerializeField] float speed = 20f;
 
+
+    private void Awake()
+    {
+        fxBullet = GetComponentInChildren<TrailRenderer>();
+    }
 
     public void moveToTarget(Vector3 myTarget, Vector3 cannonPos)
     {
