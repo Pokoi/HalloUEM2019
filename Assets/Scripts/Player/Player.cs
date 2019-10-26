@@ -11,9 +11,8 @@ public class Player : MonoBehaviour
 
     [Space(10)]
     [Header("Movement:")]
-    [SerializeField] Transform trMesh;
+    [SerializeField] public Transform trMesh;
     [SerializeField] LayerMask layerPlane;
-
 
     PlayerMovement movement;
 
@@ -28,6 +27,8 @@ public class Player : MonoBehaviour
 
         instance = this;       
         movement = new PlayerMovement(this.transform, trMesh, layerPlane);
+
+
     }
 
 

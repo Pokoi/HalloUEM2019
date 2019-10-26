@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &884167469158263885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4809383414869129953}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8957216234959177305}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8957216234959177305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4535177641501097144, guid: 71a14ee03f17f514a8241ab626b62797,
+    type: 3}
+  m_PrefabInstance: {fileID: 4809383414869129953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884167469158263885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2935350103244015124}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1183913895856483217
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,8 +42,8 @@ GameObject:
   - component: {fileID: 1183913895856483218}
   - component: {fileID: 1183913895856483219}
   - component: {fileID: 1183913895856483216}
+  - component: {fileID: 4134941419156249883}
   - component: {fileID: 5051189216640845126}
-  - component: {fileID: 4017970232186928200}
   m_Layer: 0
   m_Name: EnemyBasic
   m_TagString: Untagged
@@ -31,7 +62,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8957216234959177305}
+  - {fileID: 2935350103244015124}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,6 +96,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &4134941419156249883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183913895856483217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c39b5e9c7aee62e4a927fb05acc3b043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
+  forward: {x: 0, y: 0, z: 0}
+  avgFlockHeading: {x: 0, y: 0, z: 0}
+  avgAvoidanceHeading: {x: 0, y: 0, z: 0}
+  centreOfFlockmates: {x: 0, y: 0, z: 0}
+  numPerceivedFlockmates: 0
 --- !u!114 &5051189216640845126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,24 +130,37 @@ MonoBehaviour:
   life: 40
   secondsUntilResurrection: 3
   detonationTime: 0.5
---- !u!114 &4017970232186928200
-MonoBehaviour:
+--- !u!1 &6883203483712872099
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_PrefabInstance: {fileID: 4809383414869129953}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1183913895856483217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a85e7adb7331d947aa0ef4f23bda8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  forward: {x: 0, y: 0, z: 0}
-  avgFlockHeading: {x: 0, y: 0, z: 0}
-  avgAvoidanceHeading: {x: 0, y: 0, z: 0}
-  centreOfFlockmates: {x: 0, y: 0, z: 0}
-  numPerceivedFlockmates: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2935350103244015124}
+  m_Layer: 0
+  m_Name: enemigo_whitebox Variant (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2935350103244015124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4809383414869129953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883203483712872099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8957216234959177305}
+  m_Father: {fileID: 1183913895856483218}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4809383414869129953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,9 +230,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a14ee03f17f514a8241ab626b62797, type: 3}
---- !u!4 &8957216234959177305 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4535177641501097144, guid: 71a14ee03f17f514a8241ab626b62797,
-    type: 3}
-  m_PrefabInstance: {fileID: 4809383414869129953}
-  m_PrefabAsset: {fileID: 0}

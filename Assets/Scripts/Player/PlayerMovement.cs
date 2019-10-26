@@ -45,6 +45,7 @@ public class PlayerMovement
         {
             var v = new Vector3(hit.point.x, transformMouse.position.y, hit.point.z);
             transformMouse.LookAt(v);
+            
         }
         //Debug.DrawRay(Camera.main.transform.position, ray.direction * 100000);
     }

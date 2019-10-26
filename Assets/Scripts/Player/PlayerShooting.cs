@@ -62,7 +62,7 @@ public class PlayerShooting : MonoBehaviour
         playerBullet.gameObject.SetActive(true);
         playerBullet.transform.position = Player.instance.weaponCannon.position;
        // playerBullet.transform.rotation = Player.instance.transform.localRotation;
-        playerBullet.moveToTarget(transform.up);
+        playerBullet.moveToTarget(Player.instance.trMesh.forward);
        
     }
 }
