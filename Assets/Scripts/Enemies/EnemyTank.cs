@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTank : MonoBehaviour
+public class EnemyTank : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void LevelUP()
     {
-        
+        //TODO:
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Resurrection()
     {
-        
+        //TODO:
     }
 }

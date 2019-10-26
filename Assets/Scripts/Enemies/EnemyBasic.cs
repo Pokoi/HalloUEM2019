@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBasic : MonoBehaviour
+public class EnemyBasic : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void LevelUP()
     {
-        
+        //TODO:
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Resurrection()
     {
-        
+        //TODO:
     }
 }
