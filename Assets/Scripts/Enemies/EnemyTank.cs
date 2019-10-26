@@ -9,8 +9,4 @@ public class EnemyTank : Enemy
         //TODO:
     }
 
-    public override void Resurrection()
-    {
-        //TODO:
-    }
 }

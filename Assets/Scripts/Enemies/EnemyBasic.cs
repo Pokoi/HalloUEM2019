@@ -12,8 +12,4 @@ public class EnemyBasic : Enemy
     }
 
 
-    public override void Resurrection()
-    {
-        //TODO:
-    }
 }

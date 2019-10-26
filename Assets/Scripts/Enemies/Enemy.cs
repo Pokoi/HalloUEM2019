@@ -6,7 +6,8 @@ public class Enemy : MonoBehaviour
 {
 
     public int damage;
-    public int life;
+    public int max_life;
+    int life;
 
     public float secondsUntilResurrection = 3f;
 
@@ -32,17 +33,19 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        cachedBoid     = GetComponent<Boid>();
-        cachedCollider = GetComponent<Collider>();
+        cachedBoid      = GetComponent<Boid>();
+        cachedCollider  = GetComponent<Collider>();
+        life            = max_life;
     }
 
     public virtual void LevelUP() { }
 
     public virtual void Resurrection()
     {
+
         cachedCollider.enabled = true;
         cachedBoid.enabled     = true;
-        defeat = false;
+        life                   = max_life;
         
     }
 
@@ -50,6 +53,14 @@ public class Enemy : MonoBehaviour
     {
         this.life -= dmg;
         if (this.life <= 0) OnDead();
+    }
+
+    private void OnEnable()
+    {
+        cachedCollider.enabled = true;
+        cachedBoid.enabled     = true;
+        life                   = max_life;
+        defeat                 = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -79,18 +90,13 @@ public class Enemy : MonoBehaviour
     }
     public void OnDead()
     {
+        if (defeat) this.gameObject.SetActive(false);
         cachedCollider.enabled = false;
         cachedBoid.enabled     = false;
 
-        BoidManager.Instance.RemoveBoid(cachedBoid);
-
-        StartCoroutine("WaitingResurrection", secondsUntilResurrection);
-    }
-
-    IEnumerator WaitingResurrection(float seconds)
-    {
+        //BoidManager.Instance.RemoveBoid(cachedBoid);
         defeat = true;
-        yield return new WaitForSeconds(seconds);
-        Resurrection();        
+        Invoke("Resurrection", secondsUntilResurrection);
     }
+
 }
