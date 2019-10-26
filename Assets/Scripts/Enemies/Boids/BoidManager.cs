@@ -31,16 +31,12 @@ public class BoidManager : MonoBehaviour {
         else Destroy(this.gameObject);
     }
 
-    void Start () 
+    public void InitializeBoid(Boid b)
     {
-       foreach (Boid b in boids) 
-        {
-         b.Initialize (settings, target);
-        }
-
+        b.Initialize(settings, target);
     }
 
-    public void AddBoidToArray(ref Boid b)
+    public void AddBoidToArray(Boid b)
     {
         boids.Add(b);
     }
@@ -99,5 +95,10 @@ public class BoidManager : MonoBehaviour {
                 return sizeof (float) * 3 * 5 + sizeof (int);
             }
         }
+    }
+
+    public bool ContainsBoid(ref Boid b)
+    {
+        return boids.Contains(b);
     }
 }

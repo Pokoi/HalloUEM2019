@@ -45,6 +45,14 @@ public class Boid : MonoBehaviour {
     void Awake () {
         material        = transform.GetComponentInChildren<MeshRenderer> ().material;
         cachedTransform = transform;
+
+        OnEnable();
+        BoidManager.Instance.AddBoidToArray(this);
+    }
+
+    private void OnEnable()
+    {
+        BoidManager.Instance.InitializeBoid(this);
     }
 
     public void Initialize (BoidSettings settings, Transform target) {

@@ -2,12 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
 
     private int damage;
     private int life;
     private float velocity;
+
+    public float secondsUntilResurrection;
+
+    // Cached
+    private Boid     cachedBoid;
+    private Collider cachedCollider;
+
+    private void Awake()
+    {
+        cachedBoid     = GetComponent<Boid>();
+        cachedCollider = GetComponent<Collider>();
+    }
 
     public int Damage
     {
@@ -43,13 +55,30 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public abstract void LevelUP();
+    public virtual void LevelUP() { }
 
-    public abstract void Resurrection();
+    public virtual void Resurrection()
+    {
+        cachedCollider.enabled = true;
+        cachedBoid.enabled     = true;
+        
+    }
 
-    public abstract void ReceiveDamage(int dmg);
+    public virtual void ReceiveDamage(int dmg) { }
 
     
 
+    public void OnDead()
+    {
+        cachedCollider.enabled = false;
+        cachedBoid.enabled     = false;
 
+        StartCoroutine("WaitingResurrection", secondsUntilResurrection);
+    }
+
+    IEnumerator WaitingResurrection(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Resurrection();        
+    }
 }
