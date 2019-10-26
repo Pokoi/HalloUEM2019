@@ -7,7 +7,11 @@ public class Enemy : MonoBehaviour
 
     public int damage;
     public int max_life;
+    public int pointsForKill = 5;
     int life;
+    int level;
+    public float levelModifier = 1f;
+
 
     public float secondsUntilResurrection = 3f;
 
@@ -36,17 +40,33 @@ public class Enemy : MonoBehaviour
         cachedBoid      = GetComponent<Boid>();
         cachedCollider  = GetComponent<Collider>();
         life            = max_life;
+    }     
+
+    public void LevelUPIfNeeded()
+    {
+        int currentLevel = GameManager.Instance.Level;
+        
+        if (level != GameManager.Instance.Level)
+        {
+            LevelUP(currentLevel);
+        }
     }
 
-    public virtual void LevelUP() { }
+    protected virtual void LevelUP(int level) 
+    {
+        this.level  = level;
+        damage      *= (int) levelModifier;
+        max_life    *= (int) levelModifier;
+        
+        cachedBoid.velocityModifier  *= (levelModifier * 0.5f);
+    }
 
     public virtual void Resurrection()
     {
 
         cachedCollider.enabled = true;
         cachedBoid.enabled     = true;
-        life                   = max_life;
-        
+        life                   = max_life;        
     }
 
     public void ReceiveDamage(int dmg) 
@@ -90,6 +110,8 @@ public class Enemy : MonoBehaviour
     }
     public void OnDead()
     {
+        GameManager.Instance.UpdateScore(pointsForKill);
+        
         if (defeat) this.gameObject.SetActive(false);
         cachedCollider.enabled = false;
         cachedBoid.enabled     = false;

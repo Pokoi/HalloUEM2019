@@ -6,10 +6,6 @@ public class EnemyBasic : Enemy
 {
     
 
-    public override void LevelUP()
-    {
-        //TODO:
-    }
 
 
 }

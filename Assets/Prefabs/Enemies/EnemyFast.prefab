@@ -83,6 +83,7 @@ MonoBehaviour:
   avgAvoidanceHeading: {x: 0, y: 0, z: 0}
   centreOfFlockmates: {x: 0, y: 0, z: 0}
   numPerceivedFlockmates: 0
+  velocityModifier: 1.4
 --- !u!114 &5551938595164636320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  life: 40
+  max_life: 0
+  pointsForKill: 5
+  levelModifier: 1.2
   secondsUntilResurrection: 3
   detonationTime: 0.5
 --- !u!1001 &4809383414869129953
