@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //Activates a zombie object in this spawner position
+    public void CreateZombie(GameObject enemy)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        enemy.transform.position = transform.position;
+        enemy.SetActive(true);
     }
 }
