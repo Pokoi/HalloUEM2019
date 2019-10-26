@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Ability : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private int level;
+    public int Level
     {
-        
+        get
+        {
+            return level;
+        }
+        set
+        {
+            level = value;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float cooldown;
+
+    public virtual void levelUp() { }
 }

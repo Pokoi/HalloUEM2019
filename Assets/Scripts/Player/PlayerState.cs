@@ -10,6 +10,15 @@ public class PlayerState : MonoBehaviour
     private int damageBullet = 1;
     public int DamageBullet { get { return damageBullet; } set { damageBullet = value; } }
 
+    private int maxLife = 100;
+
+    public int MaxLife
+    {
+        get
+        {
+            return maxLife;
+        }
+    }
     private int life;
     public int Life { get { return life; } set { life = value; } }
 
@@ -24,9 +33,13 @@ public class PlayerState : MonoBehaviour
         }
         instance = this;
 
-        life = 100;
+        life = 20;
     }
 
+    private void Update()
+    {
+        Debug.Log(life);
+    }
 
 
 
