@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: c67ffe43ab7e5b54babc2cdf5be31136,
+  m_Motion: {fileID: -203655887218126122, guid: f781114a3bad26a46a9b840d457270b7,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -47,7 +47,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 9507b55b60ca28a43826c2f20c4f7462,
+  m_Motion: {fileID: -203655887218126122, guid: 0f86f5db885993d499a16ab5ce1a6c3f,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -96,7 +96,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 1db8a098948947e4abf3a51be5e67c6b,
+  m_Motion: {fileID: -203655887218126122, guid: 45b97238144f9e44c998e4125b6e24d5,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -123,7 +123,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 5f99caa511116054cacbf47366515025,
+  m_Motion: {fileID: -203655887218126122, guid: a806654efdecd284b90f235e7c253ba2,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -150,7 +150,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 8f88be57ad160ed47af51a81ac658cd3,
+  m_Motion: {fileID: -203655887218126122, guid: eb84e02208d66c44394c6a151e2662d5,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -168,7 +168,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 276457116655587454}
-    m_Position: {x: 230, y: 140, z: 0}
+    m_Position: {x: 250, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8374128004044862340}
     m_Position: {x: 270, y: -70, z: 0}
@@ -177,7 +177,7 @@ AnimatorStateMachine:
     m_Position: {x: 400, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -768071426830100397}
-    m_Position: {x: 525.6456, y: 177.48843, z: 0}
+    m_Position: {x: 520, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3430274748983599400}
     m_Position: {x: 634.50354, y: 98.61579, z: 0}

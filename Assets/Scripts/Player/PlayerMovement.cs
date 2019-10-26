@@ -13,7 +13,7 @@ using UnityEngine;
 
 public class PlayerMovement
 {
-    [SerializeField] float speed = 10.0f;
+    [SerializeField] float speed = 5.0f;
 
     Transform transformWASD;
     Transform transformMouse;
