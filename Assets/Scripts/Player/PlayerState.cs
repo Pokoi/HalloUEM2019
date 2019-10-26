@@ -8,9 +8,12 @@ public class PlayerState : MonoBehaviour
     public static PlayerState instance;
 
     private int damageBullet = 1;
+    public float levelModifier;
     public int DamageBullet { get { return damageBullet; } set { damageBullet = value; } }
 
     private int maxLife = 100;
+    
+
 
     public int MaxLife
     {
@@ -36,7 +39,12 @@ public class PlayerState : MonoBehaviour
         life = MaxLife;
     }
 
+    public void LevelUp()
+    {
+        maxLife         *= (int) levelModifier;
+        damageBullet    *= (int) levelModifier;
 
+    }
 
 
 }

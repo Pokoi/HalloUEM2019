@@ -79,19 +79,19 @@ public class WaveController : MonoBehaviour
             if (enemyType == 0)
             {
                 EnemyBasic enemy = GetPoolBasic(basicEnemyPool);
-                enemy.LevelUP();
+                enemy.LevelUPIfNeeded();
                 spawnerList[randSpawner].CreateZombie(enemy.gameObject);
             }
             else if (enemyType == 1)
             {
                 EnemyFast enemy = GetPoolFast(fastEnemyPool);
-                enemy.LevelUP();
+                enemy.LevelUPIfNeeded();
                 spawnerList[randSpawner].CreateZombie(enemy.gameObject);
             }
             else if (enemyType == 2)
             {
                 EnemyTank enemy = GetPoolTank(tankEnemyPool);
-                enemy.LevelUP();
+                enemy.LevelUPIfNeeded();
                 spawnerList[randSpawner].CreateZombie(enemy.gameObject);
             }
 

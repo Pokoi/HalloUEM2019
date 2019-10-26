@@ -27,8 +27,6 @@ public class TransformBounds
         pos.x = Mathf.Clamp(player.position.x, -size[0], size[0]);
         pos.z = Mathf.Clamp(player.position.z, -size[2], size[2]);
 
-        Debug.Log(pos);
-
         player.position = pos;
 
     }

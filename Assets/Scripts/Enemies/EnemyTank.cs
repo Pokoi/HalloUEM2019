@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class EnemyTank : Enemy
 {
-    public override void LevelUP()
-    {
-        //TODO:
-    }
+ 
 
 }
