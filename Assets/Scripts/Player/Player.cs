@@ -14,7 +14,10 @@ public class Player : MonoBehaviour
     [SerializeField] public Transform trMesh;
     [SerializeField] LayerMask layerPlane;
 
+    [SerializeField] MeshCollider playerGround;
+
     PlayerMovement movement;
+    TransformBounds bound;
 
     private void Awake()
     {
@@ -29,6 +32,10 @@ public class Player : MonoBehaviour
         movement = new PlayerMovement(this.transform, trMesh, layerPlane);
 
 
+
+
+        bound = new TransformBounds(playerGround, transform);
+
     }
 
 
@@ -37,6 +44,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         movement.update();
+        bound.update();
     }
 
 }
