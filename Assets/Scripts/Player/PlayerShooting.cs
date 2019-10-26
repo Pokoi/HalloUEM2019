@@ -58,18 +58,11 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(Player.instance.weaponCannon.position, Player.instance.weaponCannon.forward, out hit, range))
-        {
-
-
-
-            PlayerBullet playerBullet = GetBullet();
-            playerBullet.gameObject.SetActive(true);
-            playerBullet.transform.position = Player.instance.weaponCannon.position;
-            playerBullet.transform.rotation = Player.instance.weaponCannon.rotation;
-            playerBullet.moveToTarget(hit.transform.position, Player.instance.weaponCannon.position);
-
-        }
+        PlayerBullet playerBullet = GetBullet();
+        playerBullet.gameObject.SetActive(true);
+        playerBullet.transform.position = Player.instance.weaponCannon.position;
+       // playerBullet.transform.rotation = Player.instance.transform.localRotation;
+        playerBullet.moveToTarget(transform.up);
+       
     }
 }

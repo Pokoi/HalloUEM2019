@@ -24,14 +24,15 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField] float speed = 20f;
 
 
+
     private void Awake()
     {
         fxBullet = GetComponentInChildren<TrailRenderer>();
     }
 
-    public void moveToTarget(Vector3 myTarget, Vector3 cannonPos)
+    public void moveToTarget(Vector3 dir)
     {
-        normalizedDir = (myTarget - cannonPos).normalized;
+        normalizedDir = dir;
     }
     private void Update()
     {

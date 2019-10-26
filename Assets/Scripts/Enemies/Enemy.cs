@@ -68,7 +68,11 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToDetonate);
         
+
+        //TODO: comprobar si estamos en un radio de X pixeles para hacer daño o no 
         PlayerState.instance.Life -= damage;
+
+
         OnDead();
 
         yield return null;
