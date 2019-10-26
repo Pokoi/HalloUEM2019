@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3556509641397611293}
   - component: {fileID: 9203462448136121062}
-  - component: {fileID: -3956755990503559554}
+  - component: {fileID: 1119189840441928784}
   m_Layer: 0
   m_Name: EnemyFast
   m_TagString: Untagged
@@ -123,9 +123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d78be29776744a478d5a7a7d6388f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
+  life: 0
   secondsUntilResurrection: 1.5
   detonationTime: 0.5
---- !u!114 &-3956755990503559554
+--- !u!114 &1119189840441928784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +136,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7259109569724700491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c39b5e9c7aee62e4a927fb05acc3b043, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a85e7adb7331d947aa0ef4f23bda8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}

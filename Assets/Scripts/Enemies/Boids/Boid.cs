@@ -102,11 +102,11 @@ public class Boid : MonoBehaviour {
         Vector3 dir = velocity / speed;
         speed = Mathf.Clamp (speed, settings.minSpeed, settings.maxSpeed);
         velocity = dir * speed;
+        velocity.y = 0;
 
         cachedTransform.position += velocity * Time.deltaTime;
-        cachedTransform.forward = dir;
+        cachedTransform.forward = Vector3.Lerp(cachedTransform.forward, dir, Time.deltaTime * 10);
         position = cachedTransform.position;
-       // position = new Vector3(cachedTransform.position.x, target.position.y, cachedTransform.position.z);
         forward = dir;
 
         

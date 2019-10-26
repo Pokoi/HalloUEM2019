@@ -56,6 +56,8 @@ public class WaveController : MonoBehaviour
     private void Start()
     {
         StartCoroutine("ZombieGeneration");
+
+       
     }
 
 
