@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d892278dc2c30943a2ca6f018fa0ce4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dbb556365a8f1243ade7aa252d24330, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
   minSpeed: 2
@@ -23,7 +23,7 @@ MonoBehaviour:
   targetWeight: 2
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   boundsRadius: 0.1
   avoidCollisionWeight: 500
   collisionAvoidDst: 500
