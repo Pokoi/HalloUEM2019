@@ -11,6 +11,8 @@ public class HUDManager : MonoBehaviour
     public Image[] spellsCD;
     public Image health;
 
+    public Animator animatorSwamp;
+
 
     private void Update()
     {
@@ -20,5 +22,13 @@ public class HUDManager : MonoBehaviour
         }
 
         health.fillAmount = ((float)PlayerState.instance.Life / (float)PlayerState.instance.MaxLife);
+    }
+
+
+  
+
+    public void PlaySwampAnimation()
+    {
+        animatorSwamp.SetTrigger("Pantano");
     }
 }
