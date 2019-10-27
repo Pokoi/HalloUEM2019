@@ -35,6 +35,8 @@ public class AudioSourceManager : MonoBehaviour
     public AudioClip explosion;
     public AudioClip deadEnemy;
 
+    public AudioClip wc;
+
 
 
     public AudioSource source;

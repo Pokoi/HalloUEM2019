@@ -18,11 +18,14 @@ public class PlayerMovement
     Transform transformWASD;
     Transform transformMouse;
     LayerMask layerMask;
-    public PlayerMovement(Transform _trWASD, Transform _trMouse, LayerMask _plane)
+    Animator anim;
+
+    public PlayerMovement(Transform _trWASD, Transform _trMouse, LayerMask _plane, Animator _anim)
     {
         transformWASD = _trWASD;
         transformMouse = _trMouse;
         layerMask = _plane;
+        anim = _anim;
     }
 
 
@@ -33,7 +36,11 @@ public class PlayerMovement
 
         transformWASD.position += direction * speed * Time.deltaTime;
 
+        anim.SetFloat("Axis", Mathf.Abs(Input.GetAxis("Vertical")) +
+                             Mathf.Abs(Input.GetAxis("Horizontal")));
 
+        var b = Input.GetButton("Fire1");
+        anim.SetBool("shoot", b);
 
         ////
 
@@ -45,11 +52,11 @@ public class PlayerMovement
         {
             var v = new Vector3(hit.point.x, transformMouse.position.y, hit.point.z);
             transformMouse.LookAt(v);
-            
+
         }
         //Debug.DrawRay(Camera.main.transform.position, ray.direction * 100000);
     }
 
 
-    
+
 }

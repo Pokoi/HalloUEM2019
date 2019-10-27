@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
         vulnerable = true;
     }
 
+   public Animator anim;
     private void Awake()
     {
         // if the singleton hasn't been initialized yet
@@ -73,10 +74,11 @@ public class Player : MonoBehaviour
         {
             Destroy(this.gameObject);
             return;//Avoid doing anything else
+
         }
 
         instance = this;       
-        movement = new PlayerMovement(this.transform, trMesh, layerPlane);
+        movement = new PlayerMovement(this.transform, trMesh, layerPlane,anim);
 
         bound = new TransformBounds(playerGround, transform);
 

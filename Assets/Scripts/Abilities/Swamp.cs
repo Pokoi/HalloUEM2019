@@ -30,6 +30,11 @@ public class Swamp : Ability
     public override void ActivateAbility()
     {
         startTime = Time.time;
+
+        AudioSourceManager.Instance.source.clip = AudioSourceManager.Instance.wc;
+        AudioSourceManager.Instance.source.Play();
+
+
         KillEnemiesBasic(WaveController.Instance.basicEnemyPool);
         KillEnemiesFast(WaveController.Instance.fastEnemyPool);
         KillEnemiesTank(WaveController.Instance.tankEnemyPool);
