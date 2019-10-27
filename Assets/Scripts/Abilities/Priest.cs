@@ -36,6 +36,8 @@ public class Priest : Ability
 
     private IEnumerator PriestEnumerator()
     {
+        AudioSourceManager.Instance.source.clip = AudioSourceManager.Instance.priest;
+        AudioSourceManager.Instance.source.Play();
         GameObject go = Instantiate(prior,spawn);
         GameObject particles = Instantiate(fx);
         light.SetActive(true);

@@ -120,6 +120,8 @@ public class Enemy : MonoBehaviour
         if (defeat)
         {
             this.gameObject.SetActive(false);
+            AudioSourceManager.Instance.source.clip = AudioSourceManager.Instance.deadEnemy;
+            AudioSourceManager.Instance.source.Play();
         }
         cachedCollider.enabled = false;
         cachedBoid.enabled     = false;

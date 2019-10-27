@@ -58,6 +58,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot()
     {
+        AudioSourceManager.Instance.source.clip = AudioSourceManager.Instance.shoot;
+        AudioSourceManager.Instance.source.Play();
         PlayerBullet playerBullet = GetBullet();
         playerBullet.gameObject.SetActive(true);
         playerBullet.transform.position = Player.instance.weaponCannon.position;

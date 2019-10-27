@@ -15,7 +15,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
 
-    int  damage;
+    int  damage = 20;
     bool exploted = false;
     Transform cached_transform;
     float speed = 25;
@@ -35,6 +35,8 @@ public class Bomb : MonoBehaviour
             {
                 e.ReceiveDamage(this.damage);
             }
+            
+            
         }
     }
 
@@ -47,6 +49,8 @@ public class Bomb : MonoBehaviour
         }
 
         exploted    = true;
+        AudioSourceManager.Instance.source.clip = AudioSourceManager.Instance.explosion;
+        AudioSourceManager.Instance.source.Play();
         float ticks = 2;
         
         while (ticks >= 0)
