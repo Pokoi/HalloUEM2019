@@ -23,7 +23,15 @@ public class PlayerState : MonoBehaviour
         }
     }
     [SerializeField]private int life;
-    public int Life { get { return life; } set { life = value; } }
+
+    public int Life
+    {
+        get { return life; }
+        set {
+            life = value;
+            if (life <= 0) GameManager.Instance.EndGame();
+        }
+    }
 
 
     private void Awake()

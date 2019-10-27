@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text LevelText;
 
+    public GameObject EndHud;
 
     public int Level
     {
@@ -80,5 +81,8 @@ public class GameManager : MonoBehaviour
         PlayerState.instance.LevelUp();
     }
 
-
+    public void EndGame()
+    {
+        EndHud.SetActive(true);
+    }
 }
