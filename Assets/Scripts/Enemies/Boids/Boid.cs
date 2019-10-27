@@ -42,7 +42,7 @@ public class Boid : MonoBehaviour {
     Transform cachedTransform;
     Transform target;
 
-
+    public bool moving;
 
     void Awake () {
         material        = transform.GetComponentInChildren<MeshRenderer> ().material;
@@ -70,6 +70,7 @@ public class Boid : MonoBehaviour {
 
     public void UpdateBoid () 
     {
+        moving = true;
         Vector3 acceleration = Vector3.zero;
         if (target != null) 
         {
@@ -140,5 +141,6 @@ public class Boid : MonoBehaviour {
         Vector3 v = vector.normalized * settings.maxSpeed - velocity;
         return Vector3.ClampMagnitude (v, settings.maxSteerForce);
     }
+
 
 }

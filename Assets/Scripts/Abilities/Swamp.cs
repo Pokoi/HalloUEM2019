@@ -15,6 +15,7 @@ public class Swamp : Ability
 
     private float startTime = 0;
     [SerializeField] float decrementCDperLv = 1f;
+    [SerializeField] HUDManager hud;
 
 
     void Update()
@@ -30,11 +31,7 @@ public class Swamp : Ability
     public override void ActivateAbility()
     {
         startTime = Time.time;
-
-        AudioSourceManager.Instance.source.clip = AudioSourceManager.Instance.wc;
-        AudioSourceManager.Instance.source.Play();
-
-
+        hud.PlaySwampAnimation();
         KillEnemiesBasic(WaveController.Instance.basicEnemyPool);
         KillEnemiesFast(WaveController.Instance.fastEnemyPool);
         KillEnemiesTank(WaveController.Instance.tankEnemyPool);

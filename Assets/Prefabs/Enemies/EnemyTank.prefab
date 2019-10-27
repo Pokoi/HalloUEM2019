@@ -101,7 +101,7 @@ MonoBehaviour:
   avgAvoidanceHeading: {x: 0, y: 0, z: 0}
   centreOfFlockmates: {x: 0, y: 0, z: 0}
   numPerceivedFlockmates: 0
-  velocityModifier: 0.7
+  velocityModifier: 1.1
 --- !u!1001 &1782739788117779667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,11 +109,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1183913895856483218}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: fc7bf0df6b568fe46ba4667a7cabef77,
-        type: 3}
-      propertyPath: m_Name
-      value: enemigo_whitebox
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fc7bf0df6b568fe46ba4667a7cabef77,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -168,6 +163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: fc7bf0df6b568fe46ba4667a7cabef77,
+        type: 3}
+      propertyPath: m_Name
+      value: enemigo_whitebox
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: fc7bf0df6b568fe46ba4667a7cabef77,
         type: 3}
