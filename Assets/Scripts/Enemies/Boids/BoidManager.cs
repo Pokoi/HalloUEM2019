@@ -33,7 +33,7 @@ public class BoidManager : MonoBehaviour {
 
     public void RemoveBoid( Boid b)
     {
-        boids.Remove(b);
+        b.velocityModifier = 0;
     }
     public void InitializeBoid(Boid b)
     {

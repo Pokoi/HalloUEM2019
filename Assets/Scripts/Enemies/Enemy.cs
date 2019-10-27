@@ -61,9 +61,9 @@ public class Enemy : MonoBehaviour
         cachedBoid.velocityModifier  *= (levelModifier * 0.5f);
     }
 
-    public virtual void Resurrection()
+    public void Resurrection()
     {
-
+        defeat = true;
         cachedCollider.enabled = true;
         cachedBoid.enabled     = true;
         life                   = max_life;        
@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
         {
             ReceiveDamage(PlayerState.instance.DamageBullet);
             bullet.getTrailRenderer().Clear();
-            bullet.gameObject.SetActive(false);
+            //bullet.gameObject.SetActive(false);
         }
     }
     private IEnumerator Explode(float timeToDetonate)
@@ -111,13 +111,15 @@ public class Enemy : MonoBehaviour
     public void OnDead()
     {
         GameManager.Instance.UpdateScore(pointsForKill);
-        
-        if (defeat) this.gameObject.SetActive(false);
+
+        if (defeat)
+        {
+            this.gameObject.SetActive(false);
+        }
         cachedCollider.enabled = false;
         cachedBoid.enabled     = false;
 
-        //BoidManager.Instance.RemoveBoid(cachedBoid);
-        defeat = true;
+        BoidManager.Instance.RemoveBoid(cachedBoid);
         Invoke("Resurrection", secondsUntilResurrection);
     }
 

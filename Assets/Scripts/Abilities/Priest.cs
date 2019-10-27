@@ -9,7 +9,11 @@ public class Priest : Ability
     public float ticks = .5f;
     public int incrByLevel = 5;
 
-    
+    public GameObject fx;
+    public GameObject prior;
+
+    public Transform spawn;
+
 
     private float startTime = 0;
 
@@ -25,6 +29,9 @@ public class Priest : Ability
 
     private IEnumerator PriestEnumerator()
     {
+        GameObject go = Instantiate(prior,spawn);
+        GameObject particles = Instantiate(fx);
+
         float currTime = Time.time;
 
         startTime = Time.time;
@@ -37,6 +44,11 @@ public class Priest : Ability
 
             yield return new WaitForSeconds(ticks);
         }
+
+
+        Destroy(go, 1.5f);
+        Destroy(particles, 2f);
+
 
         yield return null;
 
