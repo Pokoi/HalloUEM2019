@@ -46,8 +46,9 @@ public class GameManager : MonoBehaviour
 
     private int scorePerLevel = 20;
     public Text scoreText;
-    
-   
+    public Text LevelText;
+
+
     public int Level
     {
         get
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
     private void LevelUp()
     {
         ++level;
+        LevelText.text = "LEVEL: " + level.ToString("00");
         PlayerState.instance.LevelUp();
     }
 

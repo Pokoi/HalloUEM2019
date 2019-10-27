@@ -48,6 +48,8 @@ public class Legion : Ability
         float tick      = duration / (shots - 1);
         float timeStamp = Time.time;
 
+        startTime = Time.time;
+
         while (true)
         {
             if (Time.time > timeStamp + duration) break;
@@ -101,4 +103,10 @@ public class Legion : Ability
         duration += (incrByLevel * 0.5f);
     }
 
+    public override float percetajeCD()
+    {
+
+        if (Available) return 0.6f;
+        return Mathf.Clamp((Time.time - startTime) / cooldown, 0, 0.6f);
+    }
 }

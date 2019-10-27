@@ -29,6 +29,7 @@ public class Swamp : Ability
 
     public override void ActivateAbility()
     {
+        startTime = Time.time;
         KillEnemiesBasic(WaveController.Instance.basicEnemyPool);
         KillEnemiesFast(WaveController.Instance.fastEnemyPool);
         KillEnemiesTank(WaveController.Instance.tankEnemyPool);
@@ -76,5 +77,12 @@ public class Swamp : Ability
             }
             else i++;
         }
+    }
+
+    public override float percetajeCD()
+    {
+
+        if (Available) return 0.6f;
+        return Mathf.Clamp((Time.time - startTime) / cooldown, 0, 0.6f);
     }
 }

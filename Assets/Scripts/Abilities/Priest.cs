@@ -27,9 +27,7 @@ public class Priest : Ability
 
     private void Update()
     {
-        Available = Time.time > startTime + cooldown;
-        Debug.Log(startTime);
-        
+        Available = Time.time > startTime + cooldown;        
     }
     public override void ActivateAbility()
     {
