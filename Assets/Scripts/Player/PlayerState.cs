@@ -7,7 +7,7 @@ public class PlayerState : MonoBehaviour
 
     public static PlayerState instance;
 
-    private int damageBullet = 1;
+    public int damageBullet = 1;
     public float levelModifier;
     public int DamageBullet { get { return damageBullet; } set { damageBullet = value; } }
 

@@ -31,10 +31,10 @@ public class AbilitiesManager : MonoBehaviour
 
     public List<Ability> abilities = new List<Ability>();
 
-
     private void Update()
     {
-        if (abilities[0].Available && Input.GetKeyDown(KeyCode.Alpha1)) abilities[0].ActivateAbility();
+        if (abilities[0].Available && Input.GetKeyDown(KeyCode.Alpha1)) abilities[0].ActivateAbility(); 
+
         if (abilities[1].Available && Input.GetKeyDown(KeyCode.Alpha2)) abilities[1].ActivateAbility();
         if (abilities[2].Available && Input.GetKeyDown(KeyCode.Alpha3)) abilities[2].ActivateAbility();
 

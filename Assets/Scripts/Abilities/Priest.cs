@@ -9,6 +9,12 @@ public class Priest : Ability
     public float ticks = .5f;
     public int incrByLevel = 5;
 
+    public Transform priorSpawn;
+    public GameObject prior;
+
+    public GameObject particles;
+
+    public GameObject light;
     
 
     private float startTime = 0;
@@ -25,6 +31,14 @@ public class Priest : Ability
 
     private IEnumerator PriestEnumerator()
     {
+        GameObject go = Instantiate(prior, priorSpawn);
+        GameObject part = Instantiate(particles);
+        light.SetActive(true);
+
+
+        ParticleSystem systemParticles = part.GetComponent<ParticleSystem>();
+        
+
         float currTime = Time.time;
 
         startTime = Time.time;
@@ -37,6 +51,14 @@ public class Priest : Ability
 
             yield return new WaitForSeconds(ticks);
         }
+
+        //Empezar a desvanecer al viejo
+
+        systemParticles.Stop();
+        Destroy(go,1.5f);
+        Destroy(part,1.2f);
+        light.SetActive(false);
+
 
         yield return null;
 

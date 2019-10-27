@@ -17,7 +17,9 @@ public class Enemy : MonoBehaviour
 
     public float detonationTime = .5f;
 
-    private bool defeat;
+    private bool defeat = false;
+
+
 
     public bool Defeat
     {
@@ -61,9 +63,10 @@ public class Enemy : MonoBehaviour
         cachedBoid.velocityModifier  *= (levelModifier * 0.5f);
     }
 
-    public virtual void Resurrection()
+    public void Resurrection()
     {
 
+        defeat = true;
         cachedCollider.enabled = true;
         cachedBoid.enabled     = true;
         life                   = max_life;        
@@ -85,14 +88,14 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Player>() != null) StartCoroutine("Explode", detonationTime);
+        //if (other.gameObject.GetComponent<Player>() != null) StartCoroutine("Explode", detonationTime);
 
         PlayerBullet bullet = other.gameObject.GetComponent<PlayerBullet>();
         if (bullet != null)
         {
             ReceiveDamage(PlayerState.instance.DamageBullet);
             bullet.getTrailRenderer().Clear();
-            bullet.gameObject.SetActive(false);
+           //bullet.gameObject.SetActive(false);
         }
     }
     private IEnumerator Explode(float timeToDetonate)
@@ -111,13 +114,22 @@ public class Enemy : MonoBehaviour
     public void OnDead()
     {
         GameManager.Instance.UpdateScore(pointsForKill);
-        
-        if (defeat) this.gameObject.SetActive(false);
+
+        if (defeat)
+        {
+            this.gameObject.SetActive(false);
+            //return;
+        }
+
+
+        Debug.Log("Desactivado collider");
+        var x = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        x.transform.position = transform.position;
         cachedCollider.enabled = false;
         cachedBoid.enabled     = false;
 
-        //BoidManager.Instance.RemoveBoid(cachedBoid);
-        defeat = true;
+        BoidManager.Instance.RemoveBoid(cachedBoid);
+        
         Invoke("Resurrection", secondsUntilResurrection);
     }
 

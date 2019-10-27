@@ -28,6 +28,7 @@ public class PlayerBullet : MonoBehaviour
     private void Awake()
     {
         fxBullet = GetComponentInChildren<TrailRenderer>();
+        Invoke("Destroy", 4f);
     }
 
     public void moveToTarget(Vector3 dir)
@@ -39,5 +40,8 @@ public class PlayerBullet : MonoBehaviour
         transform.position += normalizedDir * speed * Time.deltaTime;
     }
 
-   
+    private void Destroy()
+    {
+        gameObject.SetActive(false);
+    }
 }
