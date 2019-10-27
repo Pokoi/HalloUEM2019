@@ -9,19 +9,26 @@ public class Priest : Ability
     public float ticks = .5f;
     public int incrByLevel = 5;
 
-    public Transform priorSpawn;
+    public GameObject fx;
     public GameObject prior;
 
-    public GameObject particles;
+    private MeshRenderer meshRenderer;
 
     public GameObject light;
-    
+
+    public Transform spawn;
+
+    private void Awake()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+    }
 
     private float startTime = 0;
 
     private void Update()
     {
         Available = Time.time > startTime + cooldown;
+        Debug.Log(startTime);
         
     }
     public override void ActivateAbility()
@@ -31,13 +38,9 @@ public class Priest : Ability
 
     private IEnumerator PriestEnumerator()
     {
-        GameObject go = Instantiate(prior, priorSpawn);
-        GameObject part = Instantiate(particles);
+        GameObject go = Instantiate(prior,spawn);
+        GameObject particles = Instantiate(fx);
         light.SetActive(true);
-
-
-        ParticleSystem systemParticles = part.GetComponent<ParticleSystem>();
-        
 
         float currTime = Time.time;
 
@@ -52,14 +55,11 @@ public class Priest : Ability
             yield return new WaitForSeconds(ticks);
         }
 
-        //Empezar a desvanecer al viejo
 
-        systemParticles.Stop();
-        Destroy(go,1.5f);
-        Destroy(part,1.2f);
+
+        Destroy(go, 1.5f);
+        Destroy(particles, 2f);
         light.SetActive(false);
-
-
         yield return null;
 
     }
@@ -82,5 +82,14 @@ public class Priest : Ability
     public override void LevelUp()
     {
         percentage += incrByLevel;
+    }
+
+    public override float percetajeCD()
+    {
+        
+        if(Available) return 0.6f;
+        return Mathf.Clamp((Time.time - startTime)/cooldown,0,0.6f);
+
+
     }
 }

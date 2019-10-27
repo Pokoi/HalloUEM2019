@@ -23,6 +23,8 @@ public class Ability : MonoBehaviour
 
     public virtual void ActivateAbility() { }
 
+    public virtual float percetajeCD() { return 0; }
+
     private bool available = true;
 
     public bool Available

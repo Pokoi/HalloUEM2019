@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  max_life: 100
+  max_life: 0
   pointsForKill: 5
   levelModifier: 1.2
   secondsUntilResurrection: 3

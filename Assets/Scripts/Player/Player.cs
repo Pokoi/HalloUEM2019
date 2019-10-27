@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
 
     public Transform weaponCannon;
 
+    public float vulnerabilityTime = 1.2f;
+
+    public MeshRenderer capeRender;
+
 
     [Space(10)]
     [Header("Movement:")]
@@ -16,8 +20,46 @@ public class Player : MonoBehaviour
 
     [SerializeField] MeshCollider playerGround;
 
+
+    public SkinnedMeshRenderer MeshRenderer;
+
     PlayerMovement movement;
     TransformBounds bound;
+
+    private bool vulnerable = true;
+    public bool Vulnerable
+    {
+        get
+        {
+            return vulnerable;
+        }
+        set
+        {
+            vulnerable = true;
+        }
+    }
+
+    public void PlayerHitted()
+    {
+        StartCoroutine("Blink");
+    }
+
+    private IEnumerator Blink()
+    {
+        var endTime = Time.time + vulnerabilityTime;
+        while (Time.time < endTime)
+        {
+            Debug.Log("EYY");
+            MeshRenderer.enabled = false;
+            capeRender.enabled = false;
+            yield return new WaitForSeconds(0.2f);
+            MeshRenderer.enabled = true;
+            capeRender.enabled = true;
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        vulnerable = true;
+    }
 
     private void Awake()
     {
@@ -32,6 +74,7 @@ public class Player : MonoBehaviour
         movement = new PlayerMovement(this.transform, trMesh, layerPlane);
 
         bound = new TransformBounds(playerGround, transform);
+
     }   
 
     private void Update()

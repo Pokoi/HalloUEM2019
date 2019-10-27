@@ -61,9 +61,14 @@ public class Legion : Ability
     private void Shot()
     {
         Bomb b = GetBomb();
-        b.transform.position = GetRandomPosition();
-        b.gameObject.SetActive(true);
-        b.StartCoroutine("Falling");
+
+        if(b != null)
+        {
+            b.transform.position = GetRandomPosition();
+            b.gameObject.SetActive(true);
+            b.StartCoroutine("Falling");
+        }
+       
     }
 
     Bomb GetBomb()

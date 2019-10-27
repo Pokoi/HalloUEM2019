@@ -23,14 +23,19 @@ public class PlayerBullet : MonoBehaviour
 
     [SerializeField] float speed = 20f;
 
-
+    private float lifeTime = 4f;
 
     private void Awake()
     {
         fxBullet = GetComponentInChildren<TrailRenderer>();
-        Invoke("Destroy", 4f);
+
+        Invoke("Die",lifeTime);
     }
 
+    private void Die()
+    {
+        gameObject.SetActive(false);
+    }
     public void moveToTarget(Vector3 dir)
     {
         normalizedDir = dir;
@@ -40,8 +45,5 @@ public class PlayerBullet : MonoBehaviour
         transform.position += normalizedDir * speed * Time.deltaTime;
     }
 
-    private void Destroy()
-    {
-        gameObject.SetActive(false);
-    }
+   
 }

@@ -17,9 +17,7 @@ public class Enemy : MonoBehaviour
 
     public float detonationTime = .5f;
 
-    private bool defeat = false;
-
-
+    private bool defeat;
 
     public bool Defeat
     {
@@ -65,7 +63,6 @@ public class Enemy : MonoBehaviour
 
     public void Resurrection()
     {
-
         defeat = true;
         cachedCollider.enabled = true;
         cachedBoid.enabled     = true;
@@ -88,25 +85,30 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.GetComponent<Player>() != null) StartCoroutine("Explode", detonationTime);
+        if (other.gameObject.GetComponent<Player>() != null) StartCoroutine("Explode", detonationTime);
 
         PlayerBullet bullet = other.gameObject.GetComponent<PlayerBullet>();
         if (bullet != null)
         {
             ReceiveDamage(PlayerState.instance.DamageBullet);
             bullet.getTrailRenderer().Clear();
-           //bullet.gameObject.SetActive(false);
+            bullet.gameObject.SetActive(false);
         }
     }
     private IEnumerator Explode(float timeToDetonate)
     {
-        yield return new WaitForSeconds(timeToDetonate);
         
+        yield return new WaitForSeconds(timeToDetonate);
 
         //TODO: comprobar si estamos en un radio de X pixeles para hacer daño o no 
-        PlayerState.instance.Life -= damage;
 
-
+        if (Player.instance.Vulnerable)
+        {
+            PlayerState.instance.Life -= damage;
+            Player.instance.PlayerHitted();
+            Player.instance.Vulnerable = false;
+        }
+            
         OnDead();
 
         yield return null;
@@ -118,18 +120,11 @@ public class Enemy : MonoBehaviour
         if (defeat)
         {
             this.gameObject.SetActive(false);
-            //return;
         }
-
-
-        Debug.Log("Desactivado collider");
-        var x = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        x.transform.position = transform.position;
         cachedCollider.enabled = false;
         cachedBoid.enabled     = false;
 
         BoidManager.Instance.RemoveBoid(cachedBoid);
-        
         Invoke("Resurrection", secondsUntilResurrection);
     }
 
