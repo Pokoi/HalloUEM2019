@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public float vulnerabilityTime = 1.2f;
 
     public MeshRenderer capeRender;
+    public MeshRenderer minigunRender;
+    public SkinnedMeshRenderer shouldersRender;
 
 
     [Space(10)]
@@ -49,12 +51,15 @@ public class Player : MonoBehaviour
         var endTime = Time.time + vulnerabilityTime;
         while (Time.time < endTime)
         {
-            Debug.Log("EYY");
+            minigunRender.enabled = false;
+            shouldersRender.enabled = false;
             MeshRenderer.enabled = false;
             capeRender.enabled = false;
             yield return new WaitForSeconds(0.2f);
             MeshRenderer.enabled = true;
             capeRender.enabled = true;
+            minigunRender.enabled = true;
+            shouldersRender.enabled = true;
             yield return new WaitForSeconds(0.2f);
         }
 

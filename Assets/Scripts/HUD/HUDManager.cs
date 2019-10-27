@@ -19,6 +19,6 @@ public class HUDManager : MonoBehaviour
             spellsCD[i].fillAmount = abilitiesManager.abilities[i].percetajeCD();
         }
 
-        health.fillAmount = (float)(PlayerState.instance.Life / PlayerState.instance.MaxLife);
+        health.fillAmount = ((float)PlayerState.instance.Life / (float)PlayerState.instance.MaxLife);
     }
 }

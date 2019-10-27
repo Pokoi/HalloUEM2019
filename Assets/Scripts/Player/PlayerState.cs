@@ -22,7 +22,7 @@ public class PlayerState : MonoBehaviour
             return maxLife;
         }
     }
-    private int life;
+    [SerializeField]private int life;
     public int Life { get { return life; } set { life = value; } }
 
 
