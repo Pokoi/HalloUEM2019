@@ -29,7 +29,7 @@ public class PlayerState : MonoBehaviour
         get { return life; }
         set {
             life = value;
-            if (life <= 0) GameManager.Instance.EndGame();
+            if (life    <= 0) GameManager.Instance.EndGame();
         }
     }
 
